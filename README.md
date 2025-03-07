@@ -168,19 +168,13 @@ here is an html paste this in to any AI or html player i recommend
 https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_video_all
 
 
-        
- <!DOCTYPE html>
-<html>
-<head>
-  <title>BW16 Deauther</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
+        <!DOCTYPE html> <html> <head> <title>BW16 Deauther</title> <meta name="viewport" content="width=device-width, initial-scale=1">  <style>
     :root { 
       --primary: #dc3545; 
       --bg: #1a1a1a; 
       --card: #262626; 
     }
-    
+   
     body { 
       font-family: Arial, sans-serif; 
       background: var(--bg); 
