@@ -163,5 +163,5 @@ This project is for **educational purposes only**. Unauthorized use of deauthent
 
 ## Credits
 
-- Developed by **[letsqooo](https://github.com/letsqooo)**.
+- Developed by **[letsqooo](https://github.com/LETSQOOOO)**.
 - Inspired by [ESP8266 Deauther](https://github.com/SpacehuhnTech/esp8266_deauther).
