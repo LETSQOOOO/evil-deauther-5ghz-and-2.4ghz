@@ -164,7 +164,7 @@ This project is for **educational purposes only**. Unauthorized use of deauthent
 
 ## Example
 
-here is an html paste this in to any AI or html player
+here is an html paste this in to any AI or html player i recommend https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_video_all
 
 <!DOCTYPE html>
 <html lang="en">
