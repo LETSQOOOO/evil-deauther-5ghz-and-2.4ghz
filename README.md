@@ -18,7 +18,8 @@ A powerful Wi-Fi deauthentication and evil portal tool for the **BW16 (RTL8720DN
 7. [License](#license)
 8. [Contributing](#contributing)
 9. [Disclaimer](#disclaimer)
-10. [Credits](#credits)
+10. [example](#Example)
+11. [Credits](#credits)
 
 ---
 
@@ -158,6 +159,193 @@ Contributions are welcome! Please open an issue or submit a pull request.
 ## Disclaimer
 
 This project is for **educational purposes only**. Unauthorized use of deauthentication or credential capture is illegal and unethical. Always ensure you have explicit permission before using this tool.
+
+---
+
+## Example
+
+here is an html paste this in to any AI or html player
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BW16 Deauther</title>
+    <style>
+        :root {
+            --primary: #dc3545;
+            --bg: #1a1a1a;
+            --card: #262626;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg);
+            color: white;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .nav-btn {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background: var(--card);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .nav-btn.active {
+            background: var(--primary);
+        }
+        .card {
+            background: var(--card);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            background: #333;
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+        button {
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BW16 Deauther</h1>
+        
+        <div class="nav">
+            <button class="nav-btn active" onclick="showTab('deauth')">Deauth</button>
+            <button class="nav-btn" onclick="showTab('deauth-clone')">Deauth+Clone</button>
+            <button class="nav-btn" onclick="showTab('evil')">Evil Portal</button>
+            <button class="nav-btn" onclick="showTab('settings')">Settings</button>
+        </div>
+
+        <!-- Deauth Tab -->
+        <div id="deauth" class="tab-content card">
+            <h2>Deauth Networks</h2>
+            <form action="/deauth" method="POST">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>SSID</th>
+                        <th>Channel</th>
+                        <th>Band</th>
+                        <th>Signal</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="target" value="Network1"></td>
+                        <td>Network1</td>
+                        <td>6</td>
+                        <td>2.4GHz</td>
+                        <td>-60 dBm</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="target" value="Network2"></td>
+                        <td>Network2</td>
+                        <td>36</td>
+                        <td>5GHz</td>
+                        <td>-70 dBm</td>
+                    </tr>
+                </table>
+                <button type="submit">Start Deauth</button>
+            </form>
+        </div>
+
+        <!-- Deauth+Clone Tab -->
+        <div id="deauth-clone" class="tab-content card" style="display:none">
+            <h2>Deauth + Clone</h2>
+            <form action="/deauth-clone" method="POST">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>SSID</th>
+                        <th>Channel</th>
+                        <th>Band</th>
+                        <th>Signal</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="target" value="Network1"></td>
+                        <td>Network1</td>
+                        <td>6</td>
+                        <td>2.4GHz</td>
+                        <td>-60 dBm</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="target" value="Network2"></td>
+                        <td>Network2</td>
+                        <td>36</td>
+                        <td>5GHz</td>
+                        <td>-70 dBm</td>
+                    </tr>
+                </table>
+                <button type="submit">Start Deauth+Clone</button>
+            </form>
+        </div>
+
+        <!-- Evil Portal Tab -->
+        <div id="evil" class="tab-content card" style="display:none">
+            <h2>Evil Portal</h2>
+            <form action="/evilportal" method="POST">
+                <input type="text" name="ssid" placeholder="Portal SSID" required>
+                <button type="submit">Activate</button>
+            </form>
+        </div>
+
+        <!-- Settings Tab -->
+        <div id="settings" class="tab-content card" style="display:none">
+            <h2>Settings</h2>
+            <form action="/settings" method="POST">
+                <input type="password" name="password" placeholder="Admin Password" required>
+                <input type="text" name="apssid" value="BW16-Deauther" placeholder="AP SSID" required>
+                <input type="password" name="appass" value="12345678" placeholder="AP Password" required>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+            document.getElementById(tabName).style.display = 'block';
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
 
 ---
 
